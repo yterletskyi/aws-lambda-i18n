@@ -1,10 +1,10 @@
 from unittest import TestCase
 
-import app
+import aws_lambda_i18n
 
 
 class TestMessageProvider(TestCase):
-    mp = app.build_message_provider()
+    mp = aws_lambda_i18n.build_message_provider()
 
     def test_error_not_exist(self):
         request = {
@@ -13,4 +13,4 @@ class TestMessageProvider(TestCase):
             }
         }
         message = self.mp.message_for(request, 'SomeNotDefinedError')
-        self.assertEqual(message, app.messages['UnknownError']['uk'])
+        self.assertEqual(message, aws_lambda_i18n.messages['UnknownError']['uk'])
