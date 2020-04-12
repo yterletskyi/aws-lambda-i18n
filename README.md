@@ -3,7 +3,7 @@ Internationalization &amp; localization made easy for AWS lambda functions
 
 The library is intended to use as an AWS Lambda Layer to localize backend API responses.
 
-The library looks at the `Accept-Language` header to determine what language to return response on.
+The library looks at the `Accept-Language` header of the HTTP request to determine what language to return message on.
 
 
 Usage:
@@ -11,10 +11,7 @@ Usage:
 
     ```python   
     try:
-        token = token_retriver.retrieve(event)
-        user_id = user_id_retriever.retrieve(token)
-        appeals = provider.provide(user_id)
-        return success({'appeals': appeals})
+        ...
     except Exception as e:      
         from aws_lambda_i18n imort message_provider        
         if isinstance(e, UserNotFoundError):
