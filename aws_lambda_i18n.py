@@ -76,11 +76,10 @@ class MessageProvider:
         return messages['UnknownError'][locale]
 
 
-def build_message_provider() -> MessageProvider:
-    return MessageProvider(
-        AWSLocaleProvider(
-            SafeLanguageParser(
-                LanguageParser()
-            )
+message_provider = MessageProvider(
+    AWSLocaleProvider(
+        SafeLanguageParser(
+            LanguageParser()
         )
     )
+)
